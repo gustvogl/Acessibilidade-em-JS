@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Modo de leitura customizável para reduzir distrações e facilitar a compreensão.">
+  <title>Foco Leitura — leitura do seu jeito</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#artigo">Pular para o artigo</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Foco Leitura — início"><span aria-hidden="true">F.</span> Foco Leitura</a>
+    <span class="squad">Projeto de acessibilidade · Squad 3</span>
+  </header>
+
+  <main class="layout">
+    <aside class="controls" aria-labelledby="painel-title">
+      <div class="controls-head">
+        <p class="eyebrow">Ajustes de leitura</p>
+        <h1 id="painel-title">Leia do seu jeito.</h1>
+        <p>Adapte o texto para manter o foco e compreender melhor.</p>
+      </div>
+
+      <section class="control-group" aria-labelledby="visual-title">
+        <h2 id="visual-title">Visual</h2>
+        <label for="fontSelect">Tipo de fonte</label>
+        <select id="fontSelect">
+          <option value="system">Padrão</option>
+          <option value="readable">Mais legível</option>
+          <option value="serif">Serifada</option>
+        </select>
+
+        <label for="fontSize">Tamanho do texto <output id="fontSizeValue">18 px</output></label>
+        <input id="fontSize" type="range" min="16" max="28" value="18" step="2">
+
+        <label for="spacing">Espaçamento entre linhas <output id="spacingValue">1,7</output></label>
+        <input id="spacing" type="range" min="1.4" max="2.2" value="1.7" step="0.1">
+      </section>
+
+      <section class="control-group" aria-labelledby="focus-title">
+        <h2 id="focus-title">Foco</h2>
+        <label class="switch-row" for="focusMode"><span><strong>Isolar o texto</strong><small>Oculta elementos que distraem</small></span><input id="focusMode" type="checkbox" role="switch"></label>
+        <label class="switch-row" for="readingRuler"><span><strong>Régua de leitura</strong><small>Acompanha o cursor ou toque</small></span><input id="readingRuler" type="checkbox" role="switch"></label>
+        <label class="switch-row" for="highContrast"><span><strong>Alto contraste</strong><small>Reforça cores e contornos</small></span><input id="highContrast" type="checkbox" role="switch"></label>
+      </section>
+
+      <button class="reset" id="resetButton" type="button">Restaurar ajustes</button>
+      <p class="shortcut"><kbd>Alt</kbd> + <kbd>R</kbd> ativa a régua</p>
+      <div id="status" class="sr-only" role="status" aria-live="polite"></div>
+    </aside>
+
+    <section class="reading-shell" aria-label="Área de leitura">
+      <div class="progress-wrap"><span>Progresso da leitura</span><span id="progressText">0%</span><div class="progress-track" aria-hidden="true"><div id="progressBar"></div></div></div>
+      <article id="artigo" tabindex="-1">
+        <p class="category">Tecnologia e sociedade</p>
+        <h2>Como pequenas escolhas tornam a internet mais acessível</h2>
+        <p class="lead">Acessibilidade digital não é um recurso extra. Ela começa quando pensamos em diferentes formas de ler, compreender e interagir com uma página.</p>
+        <div class="meta"><span>Leitura de 3 minutos</span><span>Atualizado em agosto</span></div>
+
+        <h3>Uma experiência que se adapta às pessoas</h3>
+        <p>Nem todas as pessoas processam informações da mesma maneira. Textos muito compactos, animações constantes e telas carregadas de elementos podem dificultar a concentração. Para alguém com TDAH, dislexia ou outra dificuldade de processamento, uma interface mais clara pode transformar completamente a experiência.</p>
+        <p>Um modo de leitura permite ajustar a página sem alterar seu conteúdo. A pessoa pode aumentar a fonte, ampliar o espaço entre as linhas e escolher uma tipografia confortável. Esses controles oferecem autonomia: cada usuário encontra a configuração que funciona melhor para si.</p>
+
+        <blockquote>Uma interface previsível reduz o esforço necessário para encontrar, entender e concluir uma tarefa.</blockquote>
+
+        <h3>Menos distrações, mais compreensão</h3>
+        <p>O modo foco reduz os elementos secundários da tela e mantém a atenção no artigo. Já a régua de leitura destaca uma faixa horizontal que acompanha o cursor ou o toque. Ela ajuda a localizar a linha atual e evita que o olhar se perca entre os parágrafos.</p>
+        <p>Esses recursos também beneficiam pessoas cansadas, estudantes em ambientes movimentados e qualquer usuário que queira uma leitura mais confortável. Quando a acessibilidade é bem planejada, a melhoria chega a todos.</p>
+
+        <h3>Clareza também está no código</h3>
+        <p>Os controles desta página usam elementos nativos do HTML, nomes visíveis e estados compreensíveis. O JavaScript altera classes e propriedades do documento, salva as preferências somente neste dispositivo e informa as mudanças por uma região de status acessível.</p>
+        <p>O resultado é uma ferramenta simples, consistente e controlável por mouse, toque ou teclado. A tecnologia deixa de impor uma única forma de uso e passa a respeitar as necessidades de cada pessoa.</p>
+      </article>
+      <footer>Desenvolvido para o projeto Recursos de Acessibilidade em JS.</footer>
+    </section>
+  </main>
+  <div id="ruler" aria-hidden="true"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
